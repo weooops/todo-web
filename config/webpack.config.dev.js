@@ -218,10 +218,13 @@ module.exports = {
             use: [
               require.resolve('style-loader'),
               {
-                loader: require.resolve('css-loader'),
+                loader: 'typings-for-css-modules-loader',
                 options: {
-                  importLoaders: 1,
-                },
+                  modules: true,
+                  namedExport: true,
+                  localIdentName: '_[hash:base64:5]',
+                  camelCase: 'dashes'
+                }
               },
               {
                 loader: require.resolve('postcss-loader'),

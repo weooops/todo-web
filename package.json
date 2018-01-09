@@ -120,7 +120,8 @@
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "jest-enzyme": "^4.0.2",
-    "react-test-renderer": "^16.2.0"
+    "react-test-renderer": "^16.2.0",
+    "typings-for-css-modules-loader": "^1.7.0"
   },
   "babel": {
     "presets": [

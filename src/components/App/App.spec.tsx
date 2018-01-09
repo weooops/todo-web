@@ -9,7 +9,7 @@ it('renders without crashing', () => {
   ReactDOM.render(<App />, div);
 });
 
-it('App component contains an element with container css class', () => {
+it('renders correctly', () => {
   const wrapper = shallow(<App />);
-  expect(wrapper.find('.App')).toHaveLength(1);
+  expect(wrapper).toMatchSnapshot();
 });

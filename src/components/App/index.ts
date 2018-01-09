@@ -1,5 +1,4 @@
-import './App.scss';
-
-import App from './App';
+import App, { UserType } from './App';
 
 export default App;
+export { UserType };

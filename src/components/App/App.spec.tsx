@@ -1,13 +1,8 @@
-import * as Adapter from 'enzyme-adapter-react-16';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-
-import { configure, shallow } from 'enzyme';
+import { shallow } from 'enzyme';
 
 import App from './';
-
-// tslint:disable-next-line:no-any
-configure({ adapter: new Adapter() });
 
 it('renders without crashing', () => {
   const div = document.createElement('div');

@@ -1,59 +1,38 @@
 import * as React from 'react';
 
 import * as styles from './App.scss';
+import { UserType } from '../../models/user';
 import UserList from '../UserList';
 
-export interface UserType {
-  id: number;
-  username: string;
-}
-
-interface StatesType {
-  input: string;
+interface PropsType {
   users: Array<UserType>;
+  loading: boolean;
+  input: string;
+  onInputChange(e: React.FormEvent<HTMLInputElement>): void;
 }
 
-class App extends React.Component<{}, StatesType> {
-  id = 3;
-  state = {
-    input: '',
-    users: [
-      { id: 1, username: 'jake' },
-      { id: 2, username: 'jason' }
-    ]
-  };
-
-  onInputChange = (e: React.FormEvent<HTMLInputElement>): void => {
-    const target = e.target as HTMLInputElement;
-    this.setState({ input: target.value });
+const App: React.SFC<PropsType> = props => {
+  console.log('App이 렌더링되고 있어요.');
+  if (props.loading) {
+    return <Loading />;
   }
+  return <Render {...props} />;
+};
 
-  onButtonClick = () => {
-    this.setState(({ input, users }) => ({
-      input: '',
-      users: users.concat({
-        id: this.id++,
-        username: input
-      })
-    }));  
-  }
+const Loading: React.SFC = () => (
+  <div>로딩중...</div>
+);
 
-  render() {
-    console.log('App이 렌더링되고 있어요.');
-
-    return (
-      <div className={styles.app}>
-        <div className={styles.header}>
-          <input onChange={this.onInputChange} value={this.state.input} />
-          <button onClick={this.onButtonClick}>추가</button>
-        </div>
-        <h1 className={styles.blue}>사용자 목록</h1>
-        <div>
-          <UserList users={this.state.users} />
-        </div>
-      </div>
-    );
-  }
-}
+const Render: React.SFC<PropsType> = props => (
+  <div className={styles.app}>
+    <div className={styles.header}>
+      <input onChange={props.onInputChange} value={props.input} />
+    </div>
+    <h1 className={styles.blue}>사용자 목록</h1>
+    <div>
+      <UserList users={props.users} />
+    </div>
+  </div>
+);
 
 export default App;

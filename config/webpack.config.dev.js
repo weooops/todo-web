@@ -7,7 +7,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
-const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
@@ -114,22 +113,6 @@ module.exports = {
       // First, run the linter.
       // It's important to do this before Babel processes the JS.
       {
-        test: /\.(js|jsx)$/,
-        enforce: 'pre',
-        use: [
-          {
-            options: {
-              formatter: eslintFormatter,
-              eslintPath: require.resolve('eslint'),
-              
-            },
-            loader: require.resolve('eslint-loader'),
-          },
-          require.resolve('source-map-loader')
-        ],
-        include: paths.appSrc,
-      },
-      {
         test: /\.(ts|tsx)$/,
         loader: require.resolve('tslint-loader'),
         enforce: 'pre',
@@ -155,19 +138,6 @@ module.exports = {
             options: {
               limit: 10000,
               name: 'static/media/[name].[hash:8].[ext]',
-            },
-          },
-          // Process JS with Babel.
-          {
-            test: /\.(js|jsx)$/,
-            include: paths.appSrc,
-            loader: require.resolve('babel-loader'),
-            options: {
-              
-              // This is a feature of `babel-loader` for webpack (not Babel itself).
-              // It enables caching results in ./node_modules/.cache/babel-loader/
-              // directory for faster rebuilds.
-              cacheDirectory: true,
             },
           },
           // Compile .tsx?
@@ -220,6 +190,7 @@ module.exports = {
               {
                 loader: 'typings-for-css-modules-loader',
                 options: {
+                  importLoaders: 1,
                   modules: true,
                   namedExport: true,
                   localIdentName: '_[hash:base64:5]',
@@ -246,7 +217,12 @@ module.exports = {
                   ],
                 },
               },
-              require.resolve('sass-loader')
+              {
+                loader: require.resolve('sass-loader'),
+                options: {
+                  data: `@import '${paths.appSrc}/config/_variables.scss';`
+                }
+              }
             ],
           },
           // "file" loader makes sure those assets get served by WebpackDevServer.

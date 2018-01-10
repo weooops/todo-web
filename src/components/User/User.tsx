@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import * as styles from './User.scss';
-import { UserType } from '../App';
+import { UserType } from '../../models/user';
 
 interface PropsType {
   user: UserType;

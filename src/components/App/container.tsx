@@ -19,7 +19,7 @@ class Container extends React.Component<PropsType, StateType> {
     input: 'mark'
   };
 
-  public componentWillMount(): void {
+  public componentDidMount(): void {
     const { users, getUsers } = this.props;
 
     if (users.length) {

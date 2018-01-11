@@ -7,12 +7,12 @@ interface PropsType {
   user: UserType;
 }
 
-class User extends React.Component<PropsType, {}> {
-  shouldComponentUpdate(prevProps: PropsType) {
-    return prevProps.user !== this.props.user;
+class User extends React.Component<PropsType> {
+  public shouldComponentUpdate(nextProps: PropsType): boolean {
+    return nextProps.user !== this.props.user;
   }
 
-  render() {
+  public render() {
     const { user: { username } } = this.props;
     console.log(`${username}가 렌더링 되고있어요.`);
 

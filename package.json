@@ -53,6 +53,7 @@
     "mapCoverage": true,
     "collectCoverageFrom": [
       "src/**/*.ts?(x)",
+      "!src/**/*.scss.d.ts",
       "!src/stories/*.*",
       "!src/index.tsx",
       "!src/registerServiceWorker.ts"

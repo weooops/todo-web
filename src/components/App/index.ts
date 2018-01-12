@@ -1,25 +1,33 @@
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 
+import { Action } from '../../actions';
+import { UserType, TodoType } from '../../models';
 import { getUsers } from '../../actions/users';
-import { UserType } from '../../models/user';
+import { getTodos } from '../../actions/todos';
 import Container from './container';
 
 interface StateToPropsType {
   users: Array<UserType>;
+  todos: Array<TodoType>;
 }
 
 interface DispatchToPropsType {
-  getUsers: () => void;
+  getUsers(): void;
+  getTodos(): void;
 }
 
 const mapStateToProps = (state: StateToPropsType): StateToPropsType => ({
-  users: state.users
+  users: state.users,
+  todos: state.todos
 });
 
-const mapDispatchToProps = (dispatch: Dispatch<Object>): DispatchToPropsType => ({
+const mapDispatchToProps = (dispatch: Dispatch<Action<Array<UserType & TodoType>>>): DispatchToPropsType => ({
   getUsers: () => {
     dispatch(getUsers());
+  },
+  getTodos: () => {
+    dispatch(getTodos());
   }
 });
 

@@ -1,16 +1,22 @@
-import { UserType } from '../models/user';
+import axios, { AxiosResponse, AxiosError } from 'axios';
+import { Dispatch } from 'react-redux';
+
 import { Action } from './';
+import { UserType } from '../models';
 
 export const GET_USERS = 'GET_USERS';
 
-export function getUsers(): Action<Array<UserType>> {
-  return {
-    type: GET_USERS,
-    payload: [
-      { id: 1, username: 'jake' },
-      { id: 2, username: 'jason' },
-      { id: 3, username: 'zhon' },
-      { id: 4, username: 'mark' }
-    ]
+export function getUsers(): Dispatch<Action<Array<UserType>>> {
+  return (dispatch: Dispatch<Action<Array<UserType>>>): void => {
+    axios.get('http://localhost:3001/users')
+      .then((response: AxiosResponse): void => {
+        dispatch({
+          type: GET_USERS,
+          payload: response.data
+        });
+      })
+      .catch((error: AxiosError): void => {
+        console.log(error);
+      });
   };
 }

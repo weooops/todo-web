@@ -5,14 +5,36 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <App
-    input="aaa"
+    input="test"
     loading={false}
     onInputChange={[Function]}
+    todos={
+      Array [
+        Object {
+          "id": 1,
+          "message": "aa",
+          "title": "a",
+        },
+        Object {
+          "id": 2,
+          "message": "bb",
+          "title": "b",
+        },
+        Object {
+          "id": 3,
+          "title": "c",
+        },
+      ]
+    }
     users={
       Array [
         Object {
           "id": 1,
           "username": "jake",
+        },
+        Object {
+          "id": 1,
+          "username": "jason",
         },
       ]
     }
@@ -29,13 +51,33 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "function",
     "props": Object {
-      "input": "aaa",
+      "input": "test",
       "loading": false,
       "onInputChange": [Function],
+      "todos": Array [
+        Object {
+          "id": 1,
+          "message": "aa",
+          "title": "a",
+        },
+        Object {
+          "id": 2,
+          "message": "bb",
+          "title": "b",
+        },
+        Object {
+          "id": 3,
+          "title": "c",
+        },
+      ],
       "users": Array [
         Object {
           "id": 1,
           "username": "jake",
+        },
+        Object {
+          "id": 1,
+          "username": "jason",
         },
       ],
     },
@@ -49,13 +91,33 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "function",
       "props": Object {
-        "input": "aaa",
+        "input": "test",
         "loading": false,
         "onInputChange": [Function],
+        "todos": Array [
+          Object {
+            "id": 1,
+            "message": "aa",
+            "title": "a",
+          },
+          Object {
+            "id": 2,
+            "message": "bb",
+            "title": "b",
+          },
+          Object {
+            "id": 3,
+            "title": "c",
+          },
+        ],
         "users": Array [
           Object {
             "id": 1,
             "username": "jake",
+          },
+          Object {
+            "id": 1,
+            "username": "jason",
           },
         ],
       },

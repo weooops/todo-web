@@ -1,11 +1,13 @@
 import * as React from 'react';
 
-import { UserType } from '../../models/user';
+import { UserType, TodoType } from '../../models/';
 import App from './App';
 
 interface PropsType {
   users: Array<UserType>;
+  todos: Array<TodoType>;
   getUsers(): void;
+  getTodos(): void;
 }
 
 interface StateType {
@@ -14,29 +16,30 @@ interface StateType {
 }
 
 class Container extends React.Component<PropsType, StateType> {
-  public state: StateType = {
+  state: StateType = {
     loading: true,
     input: 'mark'
   };
 
-  public componentDidMount(): void {
-    const { users, getUsers } = this.props;
+  componentDidMount(): void {
+    const { users, getUsers, todos, getTodos } = this.props;
 
-    if (users.length) {
+    if (users.length && todos.length) {
       this.setState({ loading: false });
     } else {
       getUsers();
+      getTodos();
     }
   }
 
-  public componentWillReceiveProps(nextProps: PropsType): void {
-    if (nextProps.users.length) {
+  componentWillReceiveProps(nextProps: PropsType): void {
+    if (nextProps.users.length && nextProps.todos.length) {
       this.setState({ loading: false });
     }
   }
 
-  public render(): JSX.Element {
-    const { users } = this.props;
+  render(): JSX.Element {
+    const { users, todos } = this.props;
     const { loading, input } = this.state;
 
     return (
@@ -45,6 +48,7 @@ class Container extends React.Component<PropsType, StateType> {
         loading={loading}
         input={input}
         onInputChange={this._onInputChange}
+        todos={todos}
       />
     );
   }

@@ -1,18 +1,19 @@
 import * as React from 'react';
 
 import * as styles from './App.scss';
-import { UserType } from '../../models/user';
+import { UserType, TodoType } from '../../models';
 import UserList from '../UserList';
+import TodoList from '../TodoList';
 
-interface PropsType {
+export interface PropsType {
   users: Array<UserType>;
+  todos: Array<TodoType>;
   loading: boolean;
   input: string;
   onInputChange(e: React.FormEvent<HTMLInputElement>): void;
 }
 
 const App: React.SFC<PropsType> = props => {
-  console.log('App이 렌더링되고 있어요.');
   if (props.loading) {
     return <Loading />;
   }
@@ -20,7 +21,7 @@ const App: React.SFC<PropsType> = props => {
 };
 
 const Loading: React.SFC = () => (
-  <div>로딩중...</div>
+  <div className={styles.app}>로딩중...</div>
 );
 
 const Render: React.SFC<PropsType> = props => (
@@ -28,9 +29,13 @@ const Render: React.SFC<PropsType> = props => (
     <div className={styles.header}>
       <input onChange={props.onInputChange} value={props.input} />
     </div>
-    <h1 className={styles.blue}>사용자 목록</h1>
+    <h2 className={styles.darkGray}>USER 목록</h2>
     <div>
       <UserList users={props.users} />
+    </div>
+    <h2 className={styles.lightGray}>TODO 목록</h2>
+    <div>
+      <TodoList todos={props.todos} />
     </div>
   </div>
 );

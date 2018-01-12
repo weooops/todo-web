@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import * as styles from './UserList.scss';
-import { UserType } from '../../models/user';
+import { UserType } from '../../models';
 import User from '../User';
 
 interface PropsType {
@@ -9,13 +9,11 @@ interface PropsType {
 }
 
 class UserList extends React.Component<PropsType> {
-  public shouldComponentUpdate(nextProps: PropsType): boolean {
+  shouldComponentUpdate(nextProps: PropsType): boolean {
     return nextProps.users !== this.props.users;
   }
 
-  public render(): JSX.Element {
-    console.log('UserList가 렌더링되고 있어요.');
-
+  render(): JSX.Element {
     return (
       <div className={styles.userList}>
         <div className={styles.darkcyan}>

@@ -3,8 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/axios": "^0.14.0",
     "autoprefixer": "7.1.6",
     "awesome-typescript-loader": "^3.3.0",
+    "axios": "^0.17.1",
     "case-sensitive-paths-webpack-plugin": "2.1.1",
     "chalk": "2.3.0",
     "css-loader": "0.28.7",

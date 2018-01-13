@@ -16,9 +16,16 @@ module.exports = (baseConfig, env) => {
         use: [{
             loader: "style-loader" // creates style nodes from JS strings
         }, {
-            loader: "css-loader" // translates CSS into CommonJS
+            loader: 'typings-for-css-modules-loader',
+            options: {
+                importLoaders: 1,
+                modules: true,
+                namedExport: true,
+                localIdentName: '_[hash:base64:5]',
+                camelCase: 'dashes'
+            }
         }, {
-            loader: "sass-loader" // compiles Sass to CSS
+            loader: "sass-loader?modules" // compiles Sass to CSS
         }]
     });
 

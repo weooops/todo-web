@@ -1,7 +1,8 @@
 import * as React from 'react';
 
-import * as styles from './App.scss';
+import * as styles from './styles.scss';
 import { UserType, TodoType } from '../../models';
+import Loading from '../Loading';
 import UserList from '../UserList';
 import TodoList from '../TodoList';
 
@@ -19,10 +20,6 @@ const App: React.SFC<PropsType> = props => {
   }
   return <Render {...props} />;
 };
-
-const Loading: React.SFC = () => (
-  <div className={styles.app}>로딩중...</div>
-);
 
 const Render: React.SFC<PropsType> = props => (
   <div className={styles.app}>

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import * as styles from './Todo.scss';
+import * as styles from './styles.scss';
 import { TodoType } from '../../models';
 
 interface PropsType {
@@ -12,7 +12,7 @@ class Todo extends React.Component<PropsType> {
     return nextProps.todo !== this.props.todo;
   }
 
-  render() {
+  render(): JSX.Element {
     const { todo: { title, message } } = this.props;
 
     return (

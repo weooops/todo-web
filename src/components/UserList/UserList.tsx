@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import * as styles from './UserList.scss';
+import * as styles from './styles.scss';
 import { UserType } from '../../models';
 import User from '../User';
 
@@ -16,7 +16,7 @@ class UserList extends React.Component<PropsType> {
   render(): JSX.Element {
     return (
       <div className={styles.userList}>
-        <div className={styles.darkcyan}>
+        <div>
           {this._renderUsers()}
         </div>
       </div>

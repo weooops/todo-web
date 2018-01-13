@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import * as styles from './User.scss';
+import * as styles from './styles.scss';
 import { UserType } from '../../models';
 
 interface PropsType {
@@ -12,7 +12,7 @@ class User extends React.Component<PropsType> {
     return nextProps.user !== this.props.user;
   }
 
-  render() {
+  render(): JSX.Element {
     const { user: { username } } = this.props;
     
     return (

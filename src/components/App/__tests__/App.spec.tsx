@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
 
-import App, { PropsType } from './App';
+import App, { PropsType } from '../App';
 
 it('renders correctly', () => {
   const props: PropsType = {

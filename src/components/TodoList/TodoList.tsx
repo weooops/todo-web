@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import * as styles from './TodoList.scss';
+import * as styles from './styles.scss';
 import { TodoType } from '../../models';
 import Todo from '../Todo';
 

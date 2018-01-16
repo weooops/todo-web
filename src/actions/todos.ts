@@ -1,29 +1,31 @@
-import axios, { AxiosResponse, AxiosError } from 'axios';
+import axios from 'axios';
 import { Dispatch } from 'react-redux';
 
 import { Action } from './';
 import { TodoType } from '../models';
+import { logout } from './auth';
 
 export const GET_TODOS = 'GET_TODOS';
 
-// tslint:disable-next-line:max-line-length
-const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTE1NzM2NjgwLCJleHAiOjE1MTYzNDE0ODAsImlzcyI6Im9vb3BzLmtyIiwic3ViIjoidXNlckluZm8ifQ.6NjY-XdlxrcPo4HisfQlZAT-4aJ_Bj73DOTnFLtp0po';
-
-export function getTodos(): Dispatch<Action<Array<TodoType>>> {
-  return (dispatch: Dispatch<Action<Array<TodoType>>>): void => {
+export function getTodos() {
+  return (dispatch: Dispatch<Action<Array<TodoType>>>, getState: Function): void => {
+    const state = getState();
     axios.get('http://localhost:3001/todos', {
         headers: {
-          'Authorization': `bearer ${accessToken}`
+          'Authorization': `bearer ${state.auth.token}`
         }
       })
-      .then((response: AxiosResponse): void => {
+      .then(response => {
         dispatch({
           type: GET_TODOS,
           payload: response.data
         });
       })
-      .catch((error: AxiosError): void => {
-        console.log(error);
+      .catch(error => {
+        console.log('error', error.response);
+        if (error.response.status === 401) {
+          dispatch(logout());
+        }
       });
   };
 }

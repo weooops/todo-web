@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-const Loading: React.SFC = () => {
-  return <div>로딩중...</div>;
-};
+const Loading: React.SFC = () => (
+  <div>로딩중...</div>
+);
 
 export default Loading;

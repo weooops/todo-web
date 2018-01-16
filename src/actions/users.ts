@@ -1,4 +1,4 @@
-import axios, { AxiosResponse, AxiosError } from 'axios';
+import axios from 'axios';
 import { Dispatch } from 'react-redux';
 
 import { Action } from './';
@@ -9,14 +9,14 @@ export const GET_USERS = 'GET_USERS';
 export function getUsers(): Dispatch<Action<Array<UserType>>> {
   return (dispatch: Dispatch<Action<Array<UserType>>>): void => {
     axios.get('http://localhost:3001/users')
-      .then((response: AxiosResponse): void => {
+      .then(response => {
         dispatch({
           type: GET_USERS,
           payload: response.data
         });
       })
-      .catch((error: AxiosError): void => {
-        console.log(error);
+      .catch(error => {
+        console.log('error', error.response);
       });
   };
 }

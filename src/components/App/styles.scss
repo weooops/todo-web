@@ -1,18 +1,9 @@
 .app {
+  margin: 0 auto;
+  border: 1px solid green;
   text-align: center;
+}
 
-  &.header {
-    background-color: #222;
-    height: 150px;
-    padding: 20px;
-    color: white;
-  }
-
-  .dark-gray {
-    color: $dark-gray;
-  }
-
-  .light-gray {
-    color: $light-gray;
-  }
+.container {
+  max-width: 980px;
 }

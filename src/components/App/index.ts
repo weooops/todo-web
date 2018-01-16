@@ -1,34 +1,21 @@
-import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 
-import { Action } from '../../actions';
-import { UserType, TodoType } from '../../models';
-import { getUsers } from '../../actions/users';
-import { getTodos } from '../../actions/todos';
+import { AuthType } from '../../models';
 import Container from './container';
 
 interface StateToPropsType {
-  users: Array<UserType>;
-  todos: Array<TodoType>;
+  auth: AuthType;
 }
 
-interface DispatchToPropsType {
-  getUsers(): void;
-  getTodos(): void;
+interface ReturnStateToPropsType {
+  isLoggedIn: boolean;
 }
 
-const mapStateToProps = (state: StateToPropsType): StateToPropsType => ({
-  users: state.users,
-  todos: state.todos
-});
+const mapStateToProps = (state: StateToPropsType): ReturnStateToPropsType => {
+  const { auth } = state;
+  return {
+    isLoggedIn: auth.isLoggedIn
+  };
+};
 
-const mapDispatchToProps = (dispatch: Dispatch<Action<Array<UserType & TodoType>>>): DispatchToPropsType => ({
-  getUsers: () => {
-    dispatch(getUsers());
-  },
-  getTodos: () => {
-    dispatch(getTodos());
-  }
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Container);
+export default connect(mapStateToProps)(Container);

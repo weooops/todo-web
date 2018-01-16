@@ -8,13 +8,12 @@ interface PropsType {
 }
 
 class Todo extends React.Component<PropsType> {
-  shouldComponentUpdate(nextProps: PropsType): boolean {
+  public shouldComponentUpdate(nextProps: PropsType): boolean {
     return nextProps.todo !== this.props.todo;
   }
 
-  render(): JSX.Element {
+  public render(): JSX.Element {
     const { todo: { title, message } } = this.props;
-
     return (
       <div className={styles.todo}>
         {title} / {message}

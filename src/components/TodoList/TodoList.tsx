@@ -9,11 +9,11 @@ interface PropsType {
 }
 
 class TodoList extends React.Component<PropsType> {
-  shouldComponentUpdate(nextProps: PropsType): boolean {
+  public shouldComponentUpdate(nextProps: PropsType): boolean {
     return nextProps.todos !== this.props.todos;
   }
 
-  render(): JSX.Element {
+  public render(): JSX.Element {
     return (
       <div className={styles.todoList}>
         <div className={styles.darkorange}>

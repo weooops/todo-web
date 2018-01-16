@@ -5,39 +5,7 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <App
-    input="test"
-    loading={false}
-    onInputChange={[Function]}
-    todos={
-      Array [
-        Object {
-          "id": 1,
-          "message": "aa",
-          "title": "a",
-        },
-        Object {
-          "id": 2,
-          "message": "bb",
-          "title": "b",
-        },
-        Object {
-          "id": 3,
-          "title": "c",
-        },
-      ]
-    }
-    users={
-      Array [
-        Object {
-          "id": 1,
-          "username": "jake",
-        },
-        Object {
-          "id": 1,
-          "username": "jason",
-        },
-      ]
-    }
+    isLoggedIn={true}
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -49,81 +17,43 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "function",
+    "nodeType": "host",
     "props": Object {
-      "input": "test",
-      "loading": false,
-      "onInputChange": [Function],
-      "todos": Array [
-        Object {
-          "id": 1,
-          "message": "aa",
-          "title": "a",
-        },
-        Object {
-          "id": 2,
-          "message": "bb",
-          "title": "b",
-        },
-        Object {
-          "id": 3,
-          "title": "c",
-        },
-      ],
-      "users": Array [
-        Object {
-          "id": 1,
-          "username": "jake",
-        },
-        Object {
-          "id": 1,
-          "username": "jason",
-        },
-      ],
+      "children": <Private />,
+      "className": "app container",
     },
     "ref": null,
-    "rendered": null,
-    "type": [Function],
+    "rendered": Object {
+      "instance": null,
+      "key": "1",
+      "nodeType": "function",
+      "props": Object {},
+      "ref": null,
+      "rendered": null,
+      "type": [Function],
+    },
+    "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "function",
+      "nodeType": "host",
       "props": Object {
-        "input": "test",
-        "loading": false,
-        "onInputChange": [Function],
-        "todos": Array [
-          Object {
-            "id": 1,
-            "message": "aa",
-            "title": "a",
-          },
-          Object {
-            "id": 2,
-            "message": "bb",
-            "title": "b",
-          },
-          Object {
-            "id": 3,
-            "title": "c",
-          },
-        ],
-        "users": Array [
-          Object {
-            "id": 1,
-            "username": "jake",
-          },
-          Object {
-            "id": 1,
-            "username": "jason",
-          },
-        ],
+        "children": <Private />,
+        "className": "app container",
       },
       "ref": null,
-      "rendered": null,
-      "type": [Function],
+      "rendered": Object {
+        "instance": null,
+        "key": "1",
+        "nodeType": "function",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      "type": "div",
     },
   ],
   Symbol(enzyme.__options__): Object {

@@ -6,4 +6,3 @@ import '../components/SignupForm/SignupForm.story';
 import '../components/Loading/Loading.story';
 import '../components/Todo/Todo.story';
 import '../components/TodoList/TodoList.story';
-import '../components/User/User.story';

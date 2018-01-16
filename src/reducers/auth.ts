@@ -7,7 +7,7 @@ const initialState: AuthType = {
   token: localStorage.getItem('jwt')
 };
 
-function auth(state: AuthType = initialState, action: Action<string>) {
+function auth(state: AuthType = initialState, action: Action) {
   switch (action.type) {
     case SAVE_TOKEN:
       const { payload } = action;

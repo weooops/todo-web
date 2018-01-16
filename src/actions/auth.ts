@@ -1,13 +1,20 @@
 import axios from 'axios';
 import { Dispatch } from 'react-redux';
 
-import { Action } from './';
-
 export const SAVE_TOKEN = 'SAVE_TOKEN';
 export const LOGOUT = 'LOGOUT';
 
-export function fieldLogin(loginfield: string, password: string): Dispatch<Action<string>> {
-  return (dispatch: Dispatch<Action<string>>): void => {
+export type SaveTokenAction = {
+  type: 'SAVE_TOKEN';
+  payload: string;
+};
+
+export type LogoutAction = {
+  type: 'LOGOUT';
+};
+
+export function fieldLogin(loginfield: string, password: string) {
+  return (dispatch: Dispatch<SaveTokenAction>): void => {
     axios
       .post('http://localhost:3001/auth/login', {
         loginfield, password
@@ -27,8 +34,8 @@ export function fieldLogin(loginfield: string, password: string): Dispatch<Actio
 }
 
 export function createAccount(
-  username: string, email: string, password: string, comparePassword: string): Dispatch<Action<string>> {
-  return (dispatch: Dispatch<Action<string>>): void => {
+  username: string, email: string, password: string, comparePassword: string) {
+  return (dispatch: Dispatch<SaveTokenAction>): void => {
     axios
       .post('http://localhost:3001/auth/registration', {
         username, email, password, comparePassword
@@ -47,7 +54,7 @@ export function createAccount(
   };
 }
 
-export function logout() {
+export function logout(): LogoutAction {
   return {
     type: LOGOUT
   };

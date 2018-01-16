@@ -5,12 +5,8 @@ import { Action } from '../../actions';
 import { createAccount } from '../../actions/auth';
 import Container from './container';
 
-interface DispatchToPropsType {
-  createAccount(username: string, email: string, password: string, comparePassword: string): void;
-}
-
-const mapDispatchToProps = (dispatch: Dispatch<Action<string>>): DispatchToPropsType => ({
-  createAccount: (username: string, email: string, password: string, comparePassword: string): void => {
+const mapDispatchToProps = (dispatch: Dispatch<Action>) => ({
+  createAccount: (username: string, email: string, password: string, comparePassword: string) => {
     dispatch(createAccount(username, email, password, comparePassword));
   }
 });

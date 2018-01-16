@@ -1,17 +1,9 @@
 import { connect } from 'react-redux';
 
-import { AuthType } from '../../models';
+import { State } from '../../reducers';
 import Container from './container';
 
-interface StateToPropsType {
-  auth: AuthType;
-}
-
-interface ReturnStateToPropsType {
-  isLoggedIn: boolean;
-}
-
-const mapStateToProps = (state: StateToPropsType): ReturnStateToPropsType => {
+const mapStateToProps = (state: State) => {
   const { auth } = state;
   return {
     isLoggedIn: auth.isLoggedIn

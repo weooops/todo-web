@@ -5,9 +5,7 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <App
-    input="test"
     loading={false}
-    onInputChange={[Function]}
     todos={
       Array [
         Object {
@@ -26,18 +24,6 @@ ShallowWrapper {
         },
       ]
     }
-    users={
-      Array [
-        Object {
-          "id": 1,
-          "username": "jake",
-        },
-        Object {
-          "id": 1,
-          "username": "jason",
-        },
-      ]
-    }
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -51,9 +37,7 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "function",
     "props": Object {
-      "input": "test",
       "loading": false,
-      "onInputChange": [Function],
       "todos": Array [
         Object {
           "id": 1,
@@ -70,16 +54,6 @@ ShallowWrapper {
           "title": "c",
         },
       ],
-      "users": Array [
-        Object {
-          "id": 1,
-          "username": "jake",
-        },
-        Object {
-          "id": 1,
-          "username": "jason",
-        },
-      ],
     },
     "ref": null,
     "rendered": null,
@@ -91,9 +65,7 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "function",
       "props": Object {
-        "input": "test",
         "loading": false,
-        "onInputChange": [Function],
         "todos": Array [
           Object {
             "id": 1,
@@ -108,16 +80,6 @@ ShallowWrapper {
           Object {
             "id": 3,
             "title": "c",
-          },
-        ],
-        "users": Array [
-          Object {
-            "id": 1,
-            "username": "jake",
-          },
-          Object {
-            "id": 1,
-            "username": "jason",
           },
         ],
       },

@@ -15,5 +15,6 @@
 - CSS Module + Sass
 
 ### AWS
+- Route 53
 - S3
 - Cloudfront

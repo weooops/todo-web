@@ -7,6 +7,11 @@ const initialState: AuthType = {
   token: localStorage.getItem('jwt')
 };
 
+/**
+ * 권한과 관련된 데이터를 처리한다.
+ * @param state State 데이터
+ * @param action Action 데이터
+ */
 function auth(state: AuthType = initialState, action: Action) {
   switch (action.type) {
     case SAVE_TOKEN:

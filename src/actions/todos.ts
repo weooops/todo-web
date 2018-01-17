@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { Dispatch } from 'react-redux';
 
+import { API_URL } from './';
 import { TodoType } from '../models';
 import { logout } from './auth';
 
@@ -11,10 +12,13 @@ export type GetTodosAction = {
   payload: Array<TodoType>;
 };
 
+/**
+ * TODO 리스트를 가져온다.
+ */
 export function getTodos() {
   return (dispatch: Dispatch<GetTodosAction>, getState: Function): void => {
     const state = getState();
-    axios.get('http://localhost:3001/todos', {
+    axios.get(`${API_URL}/todos`, {
         headers: {
           'Authorization': `bearer ${state.auth.token}`
         }

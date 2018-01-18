@@ -7,12 +7,12 @@ import SignupForm from '../SignupForm';
 
 const cx = classNames.bind(styles);
 
-interface PropsType {
+interface IProps {
   action: string;
   onChangeAction(): void;
 }
 
-const Public: React.SFC<PropsType> = props => (
+const Public: React.SFC<IProps> = props => (
   <div className={cx('auth')}>
     {props.action === 'login' && (
       <div>

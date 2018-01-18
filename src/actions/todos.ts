@@ -16,7 +16,7 @@ export type GetTodosAction = {
  * TODO 리스트를 가져온다.
  */
 export function getTodos() {
-  return (dispatch: Dispatch<GetTodosAction>, getState: Function): void => {
+  return (dispatch: Dispatch<GetTodosAction>, getState: Function) => {
     const state = getState();
     axios.get(`${API_URL}/todos`, {
         headers: {

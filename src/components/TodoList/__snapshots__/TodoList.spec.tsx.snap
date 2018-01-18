@@ -68,7 +68,7 @@ ShallowWrapper {
           }
         />
       </div>,
-      "className": undefined,
+      "className": "todoList",
     },
     "ref": null,
     "rendered": Object {
@@ -196,7 +196,7 @@ ShallowWrapper {
             }
           />
         </div>,
-        "className": undefined,
+        "className": "todoList",
       },
       "ref": null,
       "rendered": Object {

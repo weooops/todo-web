@@ -2,16 +2,16 @@ import * as React from 'react';
 
 import * as styles from './styles.scss';
 import * as classNames from 'classnames/bind';
-import Private from '../Private';
-import Public from '../Public';
+import Private from '../../containers/Private';
+import Public from '../../containers/Public';
 
 const cx = classNames.bind(styles);
 
-interface PropsType {
+interface IProps {
   isLoggedIn: boolean;
 }
 
-const App: React.SFC<PropsType> = props => (
+const App: React.SFC<IProps> = props => (
   <div className={cx('app', 'container')}>
     {props.isLoggedIn ? <Private key={1} /> : <Public key={2} />}
   </div>

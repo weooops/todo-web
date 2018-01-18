@@ -2,10 +2,10 @@ import * as React from 'react';
 
 import App from './App';
 
-interface PropsType {
+interface IProps {
   isLoggedIn: boolean;
 }
 
-const Container: React.SFC<PropsType> = props => <App {...props} />;
+const Container: React.SFC<IProps> = props => <App {...props} />;
 
 export default Container;

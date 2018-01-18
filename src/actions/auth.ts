@@ -21,7 +21,7 @@ export type LogoutAction = {
  * @param password 비밀번호
  */
 export function fieldLogin(loginfield: string, password: string) {
-  return (dispatch: Dispatch<SaveTokenAction>): void => {
+  return (dispatch: Dispatch<SaveTokenAction>) => {
     axios
       .post(`${API_URL}/auth/login`, {
         loginfield, password
@@ -49,7 +49,7 @@ export function fieldLogin(loginfield: string, password: string) {
  */
 export function createAccount(
   username: string, email: string, password: string, comparePassword: string) {
-  return (dispatch: Dispatch<SaveTokenAction>): void => {
+  return (dispatch: Dispatch<SaveTokenAction>) => {
     axios
       .post(`${API_URL}/auth/registration`, {
         username, email, password, comparePassword

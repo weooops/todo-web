@@ -5,7 +5,7 @@ import * as classNames from 'classnames/bind';
 
 const cx = classNames.bind(styles);
 
-export interface PropsType {
+interface IProps {
   username: string;
   email: string;
   password: string;
@@ -14,7 +14,7 @@ export interface PropsType {
   handleSubmit(e: React.FormEvent<HTMLFormElement>): void;
 }
 
-const LoginForm: React.SFC<PropsType> = props => (
+const LoginForm: React.SFC<IProps> = props => (
   <div className={cx('signup-form')}>
     <form onSubmit={props.handleSubmit}>
       <input

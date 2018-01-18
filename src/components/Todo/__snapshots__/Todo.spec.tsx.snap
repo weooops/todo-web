@@ -30,7 +30,7 @@ ShallowWrapper {
         " / ",
         "message",
       ],
-      "className": undefined,
+      "className": "todo",
     },
     "ref": null,
     "rendered": Array [
@@ -51,7 +51,7 @@ ShallowWrapper {
           " / ",
           "message",
         ],
-        "className": undefined,
+        "className": "todo",
       },
       "ref": null,
       "rendered": Array [

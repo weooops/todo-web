@@ -3,21 +3,21 @@ import * as React from 'react';
 import { TodoType } from '../../models/';
 import Private from './Private';
 
-interface PropsType {
+interface IProps {
   todos: Array<TodoType>;
   getTodos(): void;
 }
 
-interface StateType {
+interface IStates {
   loading: boolean;
 }
 
-class Container extends React.Component<PropsType, StateType> {
-  state: StateType = {
+class Container extends React.Component<IProps, IStates> {
+  public state: IStates = {
     loading: true
   };
 
-  componentDidMount(): void {
+  public componentDidMount(): void {
     const { todos, getTodos } = this.props;
 
     if (todos.length) {
@@ -27,13 +27,13 @@ class Container extends React.Component<PropsType, StateType> {
     }
   }
 
-  componentWillReceiveProps(nextProps: PropsType): void {
+  public componentWillReceiveProps(nextProps: IProps): void {
     if (nextProps.todos.length) {
       this.setState({ loading: false });
     }
   }
 
-  render(): JSX.Element {
+  public render(): JSX.Element {
     const { todos } = this.props;
     const { loading } = this.state;
 

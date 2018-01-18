@@ -2,16 +2,16 @@ import * as React from 'react';
 
 import LoginForm from './LoginForm';
 
-interface PropsType {
+interface IProps {
   fieldLogin(loginfield: string, password: string): void;
 }
 
-interface StateType {
+interface IStates {
   [key: string]: string;
 }
 
-class Container extends React.Component<PropsType, StateType> {
-  public state: StateType = {
+class Container extends React.Component<IProps, IStates> {
+  public state: IStates = {
     loginfield: '',
     password: ''
   };

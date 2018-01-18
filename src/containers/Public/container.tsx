@@ -2,12 +2,12 @@ import * as React from 'react';
 
 import Public from './Public';
 
-interface StateType {
+interface IStates {
   action: string;
 }
 
-class Container extends React.Component<{}, StateType> {
-  public state: StateType = {
+class Container extends React.Component<{}, IStates> {
+  public state: IStates = {
     action: 'login'
   };
 
@@ -23,7 +23,7 @@ class Container extends React.Component<{}, StateType> {
   }
 
   private _onChangeAction = (): void => {
-    this.setState((prevState: StateType) => {
+    this.setState((prevState: IStates) => {
       const { action } = prevState;
       if (action === 'login') {
         return { action: 'signup' };

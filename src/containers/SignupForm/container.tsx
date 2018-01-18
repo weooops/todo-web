@@ -2,16 +2,16 @@ import * as React from 'react';
 
 import SignupForm from './SignupForm';
 
-interface PropsType {
+interface IProps {
   createAccount(username: string, email: string, password: string, comparePassword: string): void;
 }
 
-interface StateType {
+interface IStates {
   [key: string]: string;
 }
 
-class Container extends React.Component<PropsType, StateType> {
-  public state: StateType = {
+class Container extends React.Component<IProps, IStates> {
+  public state: IStates = {
     username: '',
     email: '',
     password: '',
@@ -35,9 +35,7 @@ class Container extends React.Component<PropsType, StateType> {
 
   private _handleInputChange = (event: React.FormEvent<HTMLInputElement>): void => {
     const { currentTarget: { value, name } } = event;
-    this.setState({
-      [name]: value
-    });
+    this.setState({ [name]: value });
   }
 
   private _handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {

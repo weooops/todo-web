@@ -1,21 +1,24 @@
 import * as React from 'react';
 
 import * as styles from './styles.scss';
+import * as classNames from 'classnames/bind';
 import { TodoType } from '../../models';
 import Todo from '../Todo';
 
-interface PropsType {
+const cx = classNames.bind(styles);
+
+interface IProps {
   todos: Array<TodoType>;
 }
 
-class TodoList extends React.Component<PropsType> {
-  public shouldComponentUpdate(nextProps: PropsType): boolean {
+class TodoList extends React.Component<IProps> {
+  public shouldComponentUpdate(nextProps: IProps): boolean {
     return nextProps.todos !== this.props.todos;
   }
 
   public render(): JSX.Element {
     return (
-      <div className={styles.todoList}>
+      <div className={cx('todoList')}>
         <div className={styles.darkorange}>
           {this._renderTodos()}
         </div>

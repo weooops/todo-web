@@ -1,11 +1,3 @@
 .todo-list {
-  text-decoration: underline;
-
-  .darkorange {
-    color: darkorange;
-  }
-
-  .red {
-    background-color: $dark-gray;
-  }
+  display: flex;
 }

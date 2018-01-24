@@ -1,1 +1,1 @@
-export const unauth: string;
+export const private: string;

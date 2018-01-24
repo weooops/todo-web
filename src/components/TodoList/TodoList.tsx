@@ -19,9 +19,7 @@ class TodoList extends React.Component<IProps> {
   public render(): JSX.Element {
     return (
       <div className={cx('todoList')}>
-        <div className={styles.darkorange}>
-          {this._renderTodos()}
-        </div>
+        {this._renderTodos()}
       </div>
     );
   }

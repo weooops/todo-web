@@ -1,3 +1,17 @@
-.auth {
-  border: 1px solid red;
+.public {
+  // margin: 2px;
+  // border: 2px solid red;
+  max-width: 260px;
+  width: 100%;
+
+  .text {
+    padding: 12px 0;
+    text-align: center;
+    color: #8a959e;
+
+    .change-link {
+      color: #fc5459;
+      cursor: pointer;
+    }
+  }
 }

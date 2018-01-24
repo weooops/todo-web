@@ -21,11 +21,8 @@ const App: React.SFC<IProps> = props => {
 };
 
 const Render: React.SFC<IProps> = props => (
-  <div className={cx('unauth')}>
-    <h2>TODO 목록</h2>
-    <div>
-      <TodoList todos={props.todos} />
-    </div>
+  <div className={cx('private')}>
+    <TodoList todos={props.todos} />
   </div>
 );
 

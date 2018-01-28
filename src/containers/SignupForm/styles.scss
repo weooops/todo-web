@@ -19,25 +19,53 @@
         width: 100%;
         background-color: transparent;
         font-size: $normal-font-size;
+        color: $default-font-color;
         outline: none;
+        &::placeholder {
+          color: #8a959e;
+        }
+      }
+    }
+
+    .error-control {
+      margin-top: 4px;
+      text-align: right;
+      color: #fc5459;
+    }
+
+    .error {
+      margin-top: 30px;
+      padding: 4px;
+      background-color: #FFEBEE;
+      text-align: center;
+
+      .message {
+        color: #fc5459;
       }
     }
   }
 
   .button-signup {
+    display: flex;
+    justify-content: center;
+    align-content: center;
     margin-top: 30px;
     border-radius: 23px;
-    padding: 12px;
     width: 100%;
+    height: 40px;
     background-color: #fc5459;
     box-shadow: 0 0 19px rgba(252, 84, 89, 0.57);
     color: #ffffff;
     cursor: pointer;
-    transition: background-color 0.2s ease-in;
-    will-change: background-color;
+    transition: all 0.2s ease-in;
+    will-change: background-color, opacity;
     &:hover,
     &:active {
       background-color: darken(#fc5459, 6%);
+    }
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
     }
   }
 }

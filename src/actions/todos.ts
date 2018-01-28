@@ -18,7 +18,8 @@ export type GetTodosAction = {
 export function getTodos() {
   return (dispatch: Dispatch<GetTodosAction>, getState: Function) => {
     const state = getState();
-    axios.get(`${API_URL}/todos`, {
+    axios
+      .get(`${API_URL}/todos`, {
         headers: {
           'Authorization': `bearer ${state.auth.token}`
         }
@@ -30,10 +31,10 @@ export function getTodos() {
         });
       })
       .catch(error => {
-        console.log('error', error.response);
-        if (error.response.status === 401) {
+        if (error.response.status === 401 || error.response.status > 499) {
           dispatch(logout());
         }
+        console.log('error', error.response);
       });
   };
 }

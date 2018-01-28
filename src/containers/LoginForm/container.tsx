@@ -1,48 +1,48 @@
-import * as React from 'react';
+// import * as React from 'react';
 
-import LoginForm from './LoginForm';
+// import LoginForm from './LoginForm';
 
-interface IProps {
-  fieldLogin(loginfield: string, password: string): void;
-}
+// interface IProps {
+//   fieldLogin(loginfield: string, password: string): void;
+// }
 
-interface IStates {
-  [key: string]: string;
-}
+// interface IStates {
+//   [key: string]: string;
+// }
 
-class Container extends React.Component<IProps, IStates> {
-  public state: IStates = {
-    loginfield: '',
-    password: ''
-  };
+// class Container extends React.Component<IProps, IStates> {
+//   state = {
+//     loginfield: '',
+//     password: ''
+//   };
 
-  public render(): JSX.Element {
-    const { loginfield, password } = this.state;
+//   render() {
+//     const { loginfield, password } = this.state;
 
-    return (
-      <LoginForm
-        loginfield={loginfield}
-        password={password}
-        handleInputChange={this._handleInputChange}
-        handleSubmit={this._handleSubmit}
-      />
-    );
-  }
+//     return (
+//       <LoginForm
+//         loginfield={loginfield}
+//         password={password}
+//         handleInputChange={this._handleInputChange}
+//         handleSubmit={this._handleSubmit}
+//       />
+//     );
+//   }
 
-  private _handleInputChange = (event: React.FormEvent<HTMLInputElement>): void => {
-    const { currentTarget: { value, name } } = event;
-    this.setState({
-      [name]: value
-    });
-  }
+//   private _handleInputChange = (event: React.FormEvent<HTMLInputElement>): void => {
+//     const { currentTarget: { value, name } } = event;
+//     this.setState({
+//       [name]: value
+//     });
+//   }
 
-  private _handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
-    const { fieldLogin } = this.props;
-    const { loginfield, password } = this.state;
+//   private _handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
+//     const { fieldLogin } = this.props;
+//     const { loginfield, password } = this.state;
 
-    event.preventDefault();
-    fieldLogin(loginfield, password);
-  }
-}
+//     event.preventDefault();
+//     fieldLogin(loginfield, password);
+//   }
+// }
 
-export default Container;
+// export default Container;

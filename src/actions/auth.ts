@@ -2,6 +2,7 @@ import axios from 'axios';
 import { Dispatch } from 'react-redux';
 
 import { API_URL } from './';
+import { errorLogin, errorSignup, errorCommon } from './error';
 
 export const SAVE_TOKEN = 'SAVE_TOKEN';
 export const LOGOUT = 'LOGOUT';
@@ -20,9 +21,9 @@ export type LogoutAction = {
  * @param loginfield 로그인 필드
  * @param password 비밀번호
  */
-export function fieldLogin(loginfield: string, password: string) {
+export function fieldLogin(loginfield: string, password: string, callback: Function): Dispatch<SaveTokenAction> {
   return (dispatch: Dispatch<SaveTokenAction>) => {
-    axios
+    return axios
       .post(`${API_URL}/auth/login`, {
         loginfield, password
       })
@@ -32,10 +33,17 @@ export function fieldLogin(loginfield: string, password: string) {
             type: SAVE_TOKEN,
             payload: response.data.access_token
           });
+          callback();
         }
       })
       .catch(error => {
-        console.log('error', error.response);
+        const { status, data } = error.response;
+        if (status > 399 || error < 500) {
+          dispatch(errorLogin(data));
+        } else {
+          dispatch(errorCommon(data));
+        }
+        callback();
       });
   };
 }
@@ -48,7 +56,7 @@ export function fieldLogin(loginfield: string, password: string) {
  * @param comparePassword 비밀번호 확인
  */
 export function createAccount(
-  username: string, email: string, password: string, comparePassword: string) {
+  username: string, email: string, password: string, comparePassword: string, callback: Function) {
   return (dispatch: Dispatch<SaveTokenAction>) => {
     axios
       .post(`${API_URL}/auth/registration`, {
@@ -60,10 +68,17 @@ export function createAccount(
             type: SAVE_TOKEN,
             payload: response.data.access_token
           });
+          callback();
         }
       })
       .catch(error => {
-        console.log('error', error.response);
+        const { status, data } = error.response;
+        if (status > 399 || error < 500) {
+          dispatch(errorSignup(data));
+        } else {
+          dispatch(errorCommon(data));
+        }
+        callback();
       });
   };
 }

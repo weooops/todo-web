@@ -4,4 +4,7 @@ export const form: string;
 export const formControl: string;
 export const img: string;
 export const input: string;
+export const errorControl: string;
+export const error: string;
+export const message: string;
 export const buttonSignup: string;

@@ -1,10 +1,12 @@
 type TodoType = {
-  /** TODO 아이디 */
+  /** 아이디 */
   id: number;
-  /** TODO 제목 */
+  /** 제목 */
   title: string;
-  /** TODO 메세지 */
-  message?: string;
+  /** 메세지 */
+  message: string;
+  /** 수정 날짜 */
+  updatedAt: string;
 };
 
 export default TodoType;

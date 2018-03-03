@@ -7,11 +7,11 @@ interface IStates {
 }
 
 class Container extends React.Component<{}, IStates> {
-  public state: IStates = {
+  state: IStates = {
     action: 'login'
   };
 
-  public render(): JSX.Element {
+  render(): JSX.Element {
     const { action } = this.state;
 
     return (

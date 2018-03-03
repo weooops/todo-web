@@ -21,7 +21,7 @@ export type LogoutAction = {
  * @param loginfield 로그인 필드
  * @param password 비밀번호
  */
-export function fieldLogin(loginfield: string, password: string, callback: Function): Dispatch<SaveTokenAction> {
+export function fieldLogin(loginfield: string, password: string, callback: Function) {
   return (dispatch: Dispatch<SaveTokenAction>) => {
     return axios
       .post(`${API_URL}/auth/login`, {

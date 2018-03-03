@@ -2,7 +2,6 @@
   margin: 10px;
   border-radius: 3px;
   padding: 20px;
-  max-width: 300px;
   background-color: $dark-gray;
   color: #ffffff;
 
@@ -14,11 +13,13 @@
   }
 
   .message {
+    margin-bottom: 10px;
     line-height: 1.25;
     word-wrap: break-word;
   }
+
+  .updatedAt {
+    font-size: 12px;
+  }
 }
 
-.blue {
-  color: blue;
-}

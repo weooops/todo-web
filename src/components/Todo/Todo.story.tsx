@@ -11,7 +11,8 @@ storiesOf('Todo', module)
       todo: {
         id: 1,
         title: text('title', 'title'),
-        message: text('message', 'message')
+        message: text('message', 'message'),
+        updatedAt: '2018-01-28 06:52:05'
       }
     };
     return <Todo {...props} />;

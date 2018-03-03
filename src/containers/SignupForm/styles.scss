@@ -1,6 +1,7 @@
 .signup {
   // margin: 2px;
   // border: 2px solid blue;
+  width: 260px;
 
   .logo-container {
     margin-bottom: 30px;
@@ -57,7 +58,7 @@
     box-shadow: 0 0 19px rgba(252, 84, 89, 0.57);
     color: #ffffff;
     cursor: pointer;
-    transition: all 0.2s ease-in;
+    transition: all 0.1s ease-in;
     will-change: background-color, opacity;
     &:hover,
     &:active {

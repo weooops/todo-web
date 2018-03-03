@@ -1,4 +1,5 @@
 import * as React from 'react';
+import * as PropTypes from 'prop-types';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import {
@@ -11,6 +12,7 @@ import * as classNames from 'classnames/bind';
 import { Action } from '../../actions';
 import { State } from '../../reducers';
 import * as authActions from '../../actions/auth';
+import * as errorActions from '../../actions/error';
 import Spinner from '../../components/Spinner';
 
 const cx = classNames.bind(styles);
@@ -24,11 +26,20 @@ interface ISignupFormProps {
 
 interface IProps extends ISignupFormProps, InjectedFormProps {
   signupError: { message: string; } | null;
+  errorReset(): void;
   createAccount(username: string, eamil: string, password: string, comparePassword: string, callback: Function): void;
   setSubmittingState(form: string, submitting: boolean): void;
 }
 
 class SignupForm extends React.Component<IProps> {
+  static contextTypes = {
+    t: PropTypes.func.isRequired
+  };
+
+  componentWillMount() {
+    this.props.errorReset();
+  }
+
   shouldComponentUpdate(nextProps: IProps): boolean {
     return nextProps.username !== this.props.username ||
       nextProps.email !== this.props.email ||
@@ -40,6 +51,7 @@ class SignupForm extends React.Component<IProps> {
   }
 
   render() {
+    const { t } = this.context;
     const { handleSubmit, pristine, submitting, signupError } = this.props;
 
     return (
@@ -51,14 +63,14 @@ class SignupForm extends React.Component<IProps> {
           <Field
             className={cx('input')}
             type="text"
-            label="Username"
+            label={t('Username')}
             name="username"
             component={this._renderInputField}
           />
           <Field
             className={cx('input')}
             type="text"
-            label="Email"
+            label={t('Email')}
             name="email"
             component={this._renderInputField}
           />
@@ -72,18 +84,18 @@ class SignupForm extends React.Component<IProps> {
           <Field
             className={cx('input')}
             type="password"
-            label="Password Confirm"
+            label={t('Password Confirm')}
             name="comparePassword"
             component={this._renderInputField}
           />
           {signupError && (
             <div className={cx('error')}>
-              <strong className={cx('message')}>{signupError.message}</strong>
+              <strong className={cx('message')}>{t(signupError.message)}</strong>
             </div>
           )}
           <div>
             <button className={cx('button-signup')} type="submit" disabled={pristine || submitting}>
-              {submitting ? <Spinner /> : 'SIGN UP NOW'}
+              {submitting ? <Spinner /> : t('SIGN UP NOW')}
             </button>
           </div>
         </form>
@@ -93,6 +105,7 @@ class SignupForm extends React.Component<IProps> {
 
   private _renderInputField:
     React.SFC<BaseFieldProps & WrappedFieldProps & { className: string; type: string; }> = (fieldProps) => {
+    const { t } = this.context;
     const { className, input, label, type, meta: { touched, error, warning } } = fieldProps;
     let imgFileName = 'ic-lock-copy'; // includes (password, comparePassword)
     if (input.name === 'username') {
@@ -108,7 +121,7 @@ class SignupForm extends React.Component<IProps> {
           <input className={className} {...input} placeholder={label} type={type} />
         </div>
         <div className={cx('error-control')}>
-          {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
+          {touched && ((error && <span>{t(error)}</span>) || (warning && <span>{warning}</span>))}
         </div>
       </div>
     );
@@ -166,6 +179,9 @@ const mapStateToProps = (state: State) => {
 };
 
 const mapDispatchToProps = (dispatch: Dispatch<Action>) => ({
+  errorReset: () => {
+    dispatch(errorActions.errorReset());
+  },
   createAccount: (username: string, email: string, password: string, comparePassword: string, callback: Function) => {
     dispatch(authActions.createAccount(username, email, password, comparePassword, callback));
   },

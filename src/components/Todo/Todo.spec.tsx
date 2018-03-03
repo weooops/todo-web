@@ -8,7 +8,8 @@ it('renders correctly', () => {
     todo: {
       id: 1,
       title: 'title',
-      message: 'message'
+      message: 'message',
+      updatedAt: '2018-01-28 06:52:05'
     }
   };
   const wrapper = shallow(<Todo {...props} />);

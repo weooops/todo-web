@@ -1,6 +1,6 @@
 import { Action } from '../actions';
 import { ErrorType } from '../models';
-import { ERROR_LOGIN, ERROR_SIGNUP, ERROR_COMMON } from '../actions/error';
+import { ERROR_LOGIN, ERROR_SIGNUP, ERROR_COMMON, ERROR_RESET } from '../actions/error';
 
 const initialState: ErrorType = {
   login: null,
@@ -33,6 +33,8 @@ function error(state: ErrorType = initialState, action: Action) {
           message: 'I\'m sorry, I have a problem with the server!'
         }
       };
+    case ERROR_RESET:
+      return state;
     default:
       return state;
   }

@@ -1,0 +1,32 @@
+export const translations = {
+  'ko': {
+    'Username or Email': '이메일 또는 사용자 이름',
+    'Username': '사용자 이름',
+    'Email': '이메일 주소',
+    'Password': '비밀번호',
+    'Password Confirm': '비밀번호 확인',
+    'LOG IN': '로그인',
+    'Log In': '로그인',
+    'SIGN UP NOW': '회원가입',
+    'Sign Up': '회원가입',
+    'Required': '필수 정보입니다',
+    'Must be greater than 3 characters': '3자 이상이어야합니다.',
+    'Invalid email address': '잘못된 이메일 주소입니다.',
+    'Password not matched': '비밀번호가 일치하지 않습니다.',
+    'You must provied username and password': '사용자 이름과 비밀번호를 입력해야합니다.',
+    'Please check your email or password.': '이메일이나 비밀번호를 확인하십시오.',
+    'You must provied username, email and password': '사용자 이름, 이메일 및 비밀번호를 제공해야합니다.',
+    'Not in email format': '이메일 형식이 아닙니다.',
+    'Only allow alphanumeric characters': '영숫자 만 허용합니다.',
+    'Must be between 8 and 24 characters': '8 ~ 24 자 사이 여야합니다.',
+    'Do not match password and comparePassword': 'password와 comparePassword가 일치하지 않습니다.',
+    'Username is in use': '사용자 이름이 사용 중입니다.',
+    'Email is in use': '이메일을 사용 중입니다.',
+    'Don\'t have an Account?': '계정이 없습니까?',
+    'Already have an Account?': '이미 계정이 있으십니까?',
+    'Language': '언어',
+    'logout': '로그아웃'
+  },
+  'options': {
+  },
+};

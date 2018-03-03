@@ -1,4 +1,5 @@
 import * as React from 'react';
+import * as PropTypes from 'prop-types';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import {
@@ -11,6 +12,7 @@ import * as classNames from 'classnames/bind';
 import { Action } from '../../actions';
 import { State } from '../../reducers';
 import * as authActions from '../../actions/auth';
+import * as errorActions from '../../actions/error';
 import Spinner from '../../components/Spinner';
 
 const cx = classNames.bind(styles);
@@ -22,11 +24,20 @@ interface ILoginFormProps {
 
 interface IProps extends ILoginFormProps, InjectedFormProps {
   loginError: { message: string; } | null;
+  errorReset(): void;
   fieldLogin(loginfield: string, password: string, callback: Function): void;
   setSubmittingState(form: string, submitting: boolean): void;
 }
 
-class LoginForm extends React.Component<IProps> {
+export class LoginForm extends React.Component<IProps> {
+  static contextTypes = {
+    t: PropTypes.func.isRequired
+  };
+
+  componentWillMount() {
+    this.props.errorReset();
+  }
+
   shouldComponentUpdate(nextProps: IProps): boolean {
     return nextProps.loginfield !== this.props.loginfield ||
       nextProps.password !== this.props.password ||
@@ -36,6 +47,7 @@ class LoginForm extends React.Component<IProps> {
   }
 
   render() {
+    const { t } = this.context;
     const { handleSubmit, pristine, submitting, loginError } = this.props;
 
     return (
@@ -47,25 +59,25 @@ class LoginForm extends React.Component<IProps> {
           <Field
             className={cx('input')}
             type="text"
-            label="Username or Email"
+            label={t('Username or Email')}
             name="loginfield"
             component={this._renderInputField}
           />
           <Field
             className={cx('input')}
             type="password"
-            label="Password"
+            label={t('Password')}
             name="password"
             component={this._renderInputField}
           />
           {loginError && (
             <div className={cx('error')}>
-              <strong className={cx('message')}>{loginError.message}</strong>
+              <strong className={cx('message')}>{t(loginError.message)}</strong>
             </div>
           )}
           <div>
             <button className={cx('button-login')} type="submit" disabled={pristine || submitting}>
-              {submitting ? <Spinner /> : 'LOG IN'}
+              {submitting ? <Spinner /> : t('LOG IN')}
             </button>
           </div>
         </form>
@@ -75,6 +87,7 @@ class LoginForm extends React.Component<IProps> {
 
   private _renderInputField:
     React.SFC<BaseFieldProps & WrappedFieldProps & { className: string; type: string; }> = (fieldProps) => {
+    const { t } = this.context;
     const { className, input, label, type, meta: { touched, error, warning } } = fieldProps;
     const imgFileName = input.name === 'loginfield' ? 'ic-user' : 'ic-lock-copy';
 
@@ -85,7 +98,7 @@ class LoginForm extends React.Component<IProps> {
           <input className={className} {...input} placeholder={label} type={type} />
         </div>
         <div className={cx('error-control')}>
-          {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
+          {touched && ((error && <span>{t(error)}</span>) || (warning && <span>{warning}</span>))}
         </div>
       </div>
     );
@@ -127,6 +140,9 @@ const mapStateToProps = (state: State) => {
 };
 
 const mapDispatchToProps = (dispatch: Dispatch<Action>) => ({
+  errorReset: () => {
+    dispatch(errorActions.errorReset());
+  },
   fieldLogin: (loginfield: string, password: string, callback: Function) => {
     dispatch(authActions.fieldLogin(loginfield, password, callback));
   },

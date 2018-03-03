@@ -1,6 +1,7 @@
 export const ERROR_LOGIN = 'ERROR_LOGIN';
 export const ERROR_SIGNUP = 'ERROR_SIGNUP';
 export const ERROR_COMMON = 'ERROR_COMMON';
+export const ERROR_RESET = 'ERROR_RESET';
 
 export type ErrorLoginAction = {
   type: 'ERROR_LOGIN';
@@ -15,6 +16,10 @@ export type ErrorSignupAction = {
 export type ErrorCommonAction = {
   type: 'ERROR_COMMON';
   payload: string;
+};
+
+export type ErrorResetAction = {
+  type: 'ERROR_RESET';
 };
 
 /**
@@ -44,5 +49,14 @@ export function errorCommon(payload: string): ErrorCommonAction {
   return {
     type: ERROR_COMMON,
     payload
+  };
+}
+
+/**
+ * 에러 리셋
+ */
+export function errorReset(): ErrorResetAction {
+  return {
+    type: ERROR_RESET
   };
 }

@@ -1,0 +1,23 @@
+.App {
+  text-align: center;
+}
+
+.Image__list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.Image__item {
+  width: 300px;
+}
+.Image__item img {
+  width: 100%;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

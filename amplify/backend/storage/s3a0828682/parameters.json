@@ -1,0 +1,9 @@
+{
+    "bucketName": "todosc11c4cc8bb6046eaa21fd6b5490ca0aa",
+    "authPolicyName": "s3_amplify_a0828682",
+    "unauthPolicyName": "s3_amplify_a0828682",
+    "authRoleName": "todos-20181018152910-authRole",
+    "unauthRoleName": "todos-20181018152910-unauthRole",
+    "authPermissions": "rw",
+    "unauthPermissions": "r"
+}

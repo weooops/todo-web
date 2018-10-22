@@ -1,150 +1,38 @@
 {
-  "name": "todo-web",
+  "name": "serverless-web-app-example",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@types/axios": "^0.14.0",
-    "@types/classnames": "^2.2.3",
-    "@types/date-fns": "^2.6.0",
-    "@types/redux-form": "^7.0.12",
-    "autoprefixer": "7.1.6",
-    "awesome-typescript-loader": "^3.3.0",
-    "axios": "^0.17.1",
-    "case-sensitive-paths-webpack-plugin": "2.1.1",
-    "chalk": "2.3.0",
-    "classnames": "^2.2.5",
-    "css-loader": "0.28.7",
-    "date-fns": "^1.29.0",
-    "dotenv": "4.0.0",
-    "extract-text-webpack-plugin": "3.0.2",
-    "file-loader": "1.1.5",
-    "fs-extra": "4.0.2",
-    "html-webpack-plugin": "2.30.1",
-    "jest": "21.2.1",
-    "node-sass": "^4.7.1",
-    "object-assign": "4.1.1",
-    "postcss-flexbugs-fixes": "3.2.0",
-    "postcss-loader": "2.0.8",
-    "promise": "8.0.1",
-    "prop-types": "^15.6.0",
-    "react": "^16.2.0",
-    "react-dev-utils": "4.2.1",
-    "react-dom": "^16.2.0",
-    "react-redux": "^5.0.6",
-    "redux": "^3.7.2",
-    "redux-form": "^7.2.0",
-    "redux-i18n": "^1.5.12",
-    "reset-css": "^2.2.1",
-    "sass-loader": "6.0.6",
-    "source-map-loader": "0.2.3",
-    "style-loader": "0.19.0",
-    "styled-components": "^3.0.2",
-    "stylelint": "8.2.0",
-    "stylelint-config-standard": "17.0.0",
-    "stylelint-webpack-plugin": "0.9.0",
-    "sw-precache-webpack-plugin": "0.11.4",
-    "ts-jest": "^21.2.3",
-    "tslint": "5.8.0",
-    "tslint-loader": "3.5.3",
-    "tslint-react": "3.2.0",
-    "typescript": "^2.6.1",
-    "url-loader": "0.6.2",
-    "webpack": "3.8.1",
-    "webpack-dev-server": "^2.9.4",
-    "webpack-manifest-plugin": "1.3.2",
-    "whatwg-fetch": "2.0.3"
+    "aws-amplify": "^1.1.6",
+    "aws-amplify-react": "^2.0.7",
+    "aws-appsync": "^1.4.0",
+    "aws-appsync-react": "^1.2.0",
+    "graphql-tag": "^2.10.0",
+    "react": "^16.5.2",
+    "react-apollo": "^2.2.4",
+    "react-dom": "^16.5.2",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "2.0.4"
   },
   "scripts": {
-    "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "cypress:open": "cypress open",
-    "extract": "i18n_extract",
-    "import": "i18n_import --encoding=utf-8"
-  },
-  "jest": {
-    "mapCoverage": true,
-    "collectCoverageFrom": [
-      "src/**/*.ts?(x)",
-      "!src/**/*.scss.d.ts",
-      "!src/stories/*.*",
-      "!src/index.tsx",
-      "!src/registerServiceWorker.ts"
-    ],
-    "setupFiles": [
-      "<rootDir>/config/polyfills.js"
-    ],
-    "setupTestFrameworkScriptFile": "<rootDir>/src/setupTests.ts",
-    "testMatch": [
-      "<rootDir>/src/**/__tests__/**/*.ts?(x)",
-      "<rootDir>/src/**/?(*.)(spec|test).ts?(x)"
-    ],
-    "testEnvironment": "node",
-    "testURL": "http://localhost",
-    "transform": {
-      "^.+\\.(ts|tsx)?$": "<rootDir>/config/jest/typescriptTransform.js",
-      "^.+\\.(js|jsx)$": "<rootDir>/node_modules/babel-jest",
-      "^.+\\.scss$": "<rootDir>/config/jest/scssTransform.js",
-      "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
-    },
-    "transformIgnorePatterns": [
-      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
-    ],
-    "moduleNameMapper": {
-      "^react-native$": "react-native-web"
-    },
-    "moduleFileExtensions": [
-      "web.ts",
-      "ts",
-      "web.tsx",
-      "tsx",
-      "web.js",
-      "js",
-      "json",
-      "web.jsx",
-      "jsx",
-      "node"
-    ]
-  },
-  "devDependencies": {
-    "@storybook/addon-actions": "^3.3.6",
-    "@storybook/addon-knobs": "^3.3.6",
-    "@storybook/addon-links": "^3.3.6",
-    "@storybook/react": "^3.3.6",
-    "@types/enzyme": "^3.1.6",
-    "@types/enzyme-adapter-react-16": "^1.0.1",
-    "@types/jest": "^22.0.1",
-    "@types/node": "^9.3.0",
-    "@types/prop-types": "^15.5.2",
-    "@types/react": "^16.0.34",
-    "@types/react-dom": "^16.0.3",
-    "@types/react-redux": "^5.0.14",
-    "@types/react-test-renderer": "^16.0.0",
-    "@types/redux": "^3.6.0",
-    "@types/redux-devtools-extension": "^2.13.2",
-    "@types/redux-logger": "^3.0.5",
-    "@types/redux-thunk": "^2.1.0",
-    "@types/storybook__addon-actions": "^3.0.1",
-    "@types/storybook__addon-knobs": "^3.2.1",
-    "@types/storybook__react": "^3.0.6",
-    "cypress": "^1.4.1",
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
-    "jest-enzyme": "^4.0.2",
-    "react-test-renderer": "^16.2.0",
-    "redux-devtools-extension": "^2.13.2",
-    "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.2.0",
-    "typings-for-css-modules-loader": "^1.7.0"
-  },
-  "babel": {
-    "presets": [
-      "react-app"
-    ]
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true
   }
 }

@@ -37,7 +37,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h2>{I18n.get('Todos with Amplify Client')}</h2>
+        <h2>{I18n.get('Todos with Amplify Client!!!')}</h2>
         <div>
           <button onClick={this.listQuery}>{I18n.get('GraphQL Query')}</button>
           <button onClick={this.todoMutation}>
@@ -68,7 +68,7 @@ class App extends Component {
         </div>
         <hr />
 
-        <h2>{I18n.get('Todos with Apollo Client')}</h2>
+        <h2>{I18n.get('Todos with Apollo Client!!!')}</h2>
         <div>
           <Mutation
             mutation={ADD_TODO}
